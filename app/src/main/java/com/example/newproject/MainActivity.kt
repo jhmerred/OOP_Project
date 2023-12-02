@@ -1,17 +1,26 @@
 package com.example.newproject
-
+import com.example.newproject.view.Friend
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    val friendManager=FriendManager()
+    class FriendManager {
+        private val friendList = mutableListOf<Friend>()
 
+        fun addFriend(friend: com.example.newproject.view.Friend) {
+            friendList.add(friend)
+        }
+        fun getFriends():List<Friend>{
+            return friendList
+        }
 
-    lateinit var binding: ActivityMainBinding
+    }
+
+    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
