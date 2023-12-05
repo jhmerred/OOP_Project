@@ -20,5 +20,13 @@ class UserRepository {
             }
     }
 
-
+    fun updateUser(user: User) {
+        userRef.child(user.username).get()
+            .addOnSuccessListener {
+                userRef.child(user.username).setValue(user)
+            }
+            .addOnFailureListener {
+                Log.e("System", "존재하지 않는 아이디입니다. 다시 시도해주세요.")
+            }
+    }
 }
