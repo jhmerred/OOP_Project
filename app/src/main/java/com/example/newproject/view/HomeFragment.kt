@@ -16,26 +16,39 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // 로그아웃 버튼
+        val logoutButton = view.findViewById<View>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            // 로그아웃 기능 구현
+        }
+
+        // 이름과 학과 표시
+        val nameTextView = view.findViewById<TextView>(R.id.nameTextView)
+        val departmentTextView = view.findViewById<TextView>(R.id.departmentTextView)
+        nameTextView.text = "이름"
+        departmentTextView.text = "학과"
+
+        // 우선순위 목록 창
+        val priorityListLayout = view.findViewById<LinearLayout>(R.id.priorityListLayout)
+        val addButtonPriority = view.findViewById<Button>(R.id.addButtonPriority)
+        addButtonPriority.setOnClickListener {
+            // 우선순위 추가 기능 구현
+        }
+
+        // 오늘 할 일 목록 창
+        val todoListLayout = view.findViewById<LinearLayout>(R.id.todoListLayout)
+        val addButtonTodo = view.findViewById<Button>(R.id.addButtonTodo)
+        addButtonTodo.setOnClickListener {
+            // 할 일 추가 기능 구현
+        }
+
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
+        fun newInstance() = HomeFragment()
     }
 }
