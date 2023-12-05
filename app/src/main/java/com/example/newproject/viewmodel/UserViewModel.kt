@@ -5,10 +5,8 @@ import com.example.newproject.dto.UserRegisterDto
 import com.example.newproject.dto.UserSimpleDto
 import com.example.newproject.dto.UserUpdateDto
 import com.example.newproject.model.repository.UserRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
 class UserViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) {
