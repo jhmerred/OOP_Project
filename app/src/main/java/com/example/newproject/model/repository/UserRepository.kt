@@ -10,10 +10,20 @@ import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-class UserRepository {
+@InstallIn(SingletonComponent::class)
+object UserRepository {
+    /***
+     * Repository는 단 한번만 생성되면 됨.
+     * 따라서, 불 필요한 객체 생성 방지를 위해 싱글톤 패턴을 사용하여
+     * 애플리케이션에서 단 한 번만 생성하도록 함
+     */
+
     private val database: FirebaseDatabase = Firebase.database("https://oop-6184c-default-rtdb.firebaseio.com/")
     private val userRef = database.getReference("users")
 
