@@ -1,11 +1,18 @@
 package com.example.newproject.model.domain
 
 class User(
-    val name: String,
-    val username: String,
-    val password: String,
-    var profileImage: String = ""   // 프사 uri
+    private val name: String,
+    private val username: String,
+    private val password: String,
+    private val friendList: ArrayList<String> = arrayListOf<String>(),
+    private val todoList: ArrayList<Todo> = arrayListOf<Todo>(),
+    private val profileImage: String = ""   // 프사 uri
 ) {
-    val todoList: ArrayList<Todo> = arrayListOf<Todo>()
-    val friendList: ArrayList<User> = arrayListOf<User>()
+    fun getUsername(): String {
+        return this.username
+    }
+
+    fun getFriendList(): ArrayList<String> {
+        return this.friendList
+    }
 }
