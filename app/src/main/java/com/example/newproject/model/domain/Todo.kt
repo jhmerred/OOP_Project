@@ -5,5 +5,4 @@ import java.util.Date
 class Todo(
     var deadline: Date,
     var name: String
-) {
-}
+)

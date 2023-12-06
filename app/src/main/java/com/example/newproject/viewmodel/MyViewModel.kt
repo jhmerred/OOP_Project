@@ -9,5 +9,4 @@ class MyViewModel(application: Application):AndroidViewModel(application){
     fun updateText(newText:String){
         myText.value=newText
     }
-
 }

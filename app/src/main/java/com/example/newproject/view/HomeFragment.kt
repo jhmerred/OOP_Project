@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.newproject.R
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.example.newproject.R.*
 
 class HomeFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var logoutButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,7 +21,7 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         // 로그아웃 버튼
-        val logoutButton = view.findViewById<View>(R.id.logoutButton)
+        logoutButton = view.findViewById(R.id.logoutButton)
         logoutButton.setOnClickListener {
             // 로그아웃 기능 구현
         }
@@ -32,17 +34,21 @@ class HomeFragment : Fragment() {
 
         // 우선순위 목록 창
         val priorityListLayout = view.findViewById<LinearLayout>(R.id.priorityListLayout)
-        val addButtonPriority = view.findViewById<Button>(R.id.addButtonPriority)
+        val addButtonPriority = Button(requireContext())
+        addButtonPriority.text = "+"
         addButtonPriority.setOnClickListener {
             // 우선순위 추가 기능 구현
         }
+        priorityListLayout.addView(addButtonPriority)
 
         // 오늘 할 일 목록 창
         val todoListLayout = view.findViewById<LinearLayout>(R.id.todoListLayout)
-        val addButtonTodo = view.findViewById<Button>(R.id.addButtonTodo)
+        val addButtonTodo = Button(requireContext())
+        addButtonTodo.text = "+"
         addButtonTodo.setOnClickListener {
             // 할 일 추가 기능 구현
         }
+        todoListLayout.addView(addButtonTodo)
 
         return view
     }
